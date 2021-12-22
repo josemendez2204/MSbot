@@ -1,4 +1,4 @@
-require('dotenv').config()
+
 const fetch= require("node-fetch");
 // const Telegraf = require('telegraf');
 const { Composer } = require('micro-bot')
