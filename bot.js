@@ -1,10 +1,18 @@
-
+require('dotenv').config();
 const fetch= require("node-fetch");
-// const Telegraf = require('telegraf');
-const { Composer } = require('micro-bot')
-// const {TOKEN,SERVERURL}= process.env
-// const bot = new Telegraf(`${TOKEN}`);
-const bot = new Composer()
+const Telegraf = require('telegraf');
+const express = require('express')
+const expressApp = express()
+//server
+const port = process.env.PORT || 3000
+expressApp.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+expressApp.listen(port, () => {
+  console.log(`Listening on port ${port}`)
+})
+
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 
 async function apiData() {
@@ -39,8 +47,8 @@ Get $MSU at:
 }))
 
 
-  // bot.launch()
-  module.exports = bot
+  bot.launch()
+
   });
 
 
