@@ -1,1 +1,1 @@
-worker: npm start
+heroku ps:scale -a <pricebotmsu> worker=1    
