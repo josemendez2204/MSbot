@@ -1,1 +1,1 @@
-heroku ps:scale -a <pricebotmsu> worker=1    
+worker: node bot.js
