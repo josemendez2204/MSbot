@@ -116,14 +116,14 @@ MetaSoccer Price Bot
 MetaSoccer Price Bot
 
 💰MSU Supply:
-Total Supply: ${totalSupply} MSU
-Circulating Supply: ${circulatingSupply} MSU
+💸Total Supply: ${totalSupply} MSU
+📉Circulating Supply: ${circulatingSupply} MSU
 
-Fully Diluted Valuation: ${fullyDiluted} USD
-Market Cap: ${marketCap} USD
+📈Fully Diluted Valuation: ${fullyDiluted} USD
+💵Market Cap: ${marketCap} USD
 
-Onchain Liquidity: ${onchainLiquidity} USD
-Effective Reserve Ratio: ${effectiveReserveRatio} %
+🔗Onchain Liquidity: ${onchainLiquidity} USD
+🔄Effective Reserve Ratio: ${effectiveReserveRatio} %
       `, { 
       disable_web_page_preview: true 
     }))
