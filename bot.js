@@ -96,7 +96,7 @@ async function apiData() {
 
     // bot response
 
-    bot.start((ctx) => ctx.reply("Welcome to MetaSoccer official price bot, if you want to know the price of MSU please enter /price. Supply info also available with /supply."))
+    bot.start((ctx) => ctx.reply("Welcome to the MetaSoccer community price bot, if you want to know the price of MSU please enter /price. Supply info also available with /supply."))
         
     bot.command("price",(ctx) => ctx.replyWithMarkdownV2(`
 MetaSoccer Price Bot
