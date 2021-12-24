@@ -17,13 +17,17 @@ expressApp.listen(port, () => {
 const bot = new Telegraf(process.env.BOT_TOKEN);
 const provider = new ethers.providers.JsonRpcProvider("https://polygon-rpc.com/");
 
+const abiPath = __dirname + "/abi/";
+const TCBAbi = abiPath + "BatchedBancorMarketMaker.json";
+const ERC20Abi = abiPath + "MetaSoccerToken.json";
+
 async function apiData() {
     const response = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=metasoccer&vs_currencies=usd&include_market_cap=true");
     const data = await response.json();
-    const curve = new ethers.Contract('0xD2b2132D8E6d6484276f3D779341fA3F64a002fD' , JSON.parse(fs.readFileSync("./abi/BatchedBancorMarketMaker.json")) , provider)
-    const msu = new ethers.Contract('0xe8377a076adabb3f9838afb77bee96eac101ffb1' , JSON.parse(fs.readFileSync("./abi/MetaSoccerToken.json")) , provider)
-    const usdt = new ethers.Contract('0xc2132d05d31c914a87c6611c10748aeb04b58e8f' , JSON.parse(fs.readFileSync("./abi/MetaSoccerToken.json")) , provider)
-    const dai = new ethers.Contract('0x8f3cf7ad23cd3cadbd9735aff958023239c6a063' , JSON.parse(fs.readFileSync("./abi/MetaSoccerToken.json")) , provider)
+    const curve = new ethers.Contract('0xD2b2132D8E6d6484276f3D779341fA3F64a002fD' , JSON.parse(fs.readFileSync(TCBAbi)) , provider)
+    const msu = new ethers.Contract('0xe8377a076adabb3f9838afb77bee96eac101ffb1' , JSON.parse(fs.readFileSync(ERC20Abi)) , provider)
+    const usdt = new ethers.Contract('0xc2132d05d31c914a87c6611c10748aeb04b58e8f' , JSON.parse(fs.readFileSync(ERC20Abi)) , provider)
+    const dai = new ethers.Contract('0x8f3cf7ad23cd3cadbd9735aff958023239c6a063' , JSON.parse(fs.readFileSync(ERC20Abi)) , provider)
     const sushiPool = '0xD10bB4ED281A84492343573885168027Cc625bf7'
     const sushiMsu = parseFloat(ethers.utils.formatEther(await msu.balanceOf(sushiPool)));
     const sushiUsdt = parseFloat(ethers.utils.formatUnits(await usdt.balanceOf(sushiPool), 6));
